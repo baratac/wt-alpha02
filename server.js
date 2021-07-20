@@ -22,7 +22,7 @@ server.get('*', async (req, res) => {
 
   const appContent = await renderToString(app)
 
-  console.log("THE APP CONTENT IS:", appContent);
+  // console.log("THE APP CONTENT IS:", appContent);
   fs.readFile(path.join(__dirname, '/dist/client/index.html'), (err, html) => {
     if (err) {
       throw err

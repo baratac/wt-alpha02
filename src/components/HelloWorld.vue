@@ -9,7 +9,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Hello World App 01'
+      msg: 'WT Alpha Two says, Hello World!'
     }
   }
 }

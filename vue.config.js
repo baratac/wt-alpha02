@@ -2,6 +2,7 @@ const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 const nodeExternals = require('webpack-node-externals')
 const webpack = require('webpack')
 
+
 module.exports = {
   chainWebpack: webpackConfig => {
     // We need to disable cache loader, otherwise the client build
@@ -10,7 +11,16 @@ module.exports = {
     webpackConfig.module.rule('js').uses.delete('cache-loader')
     webpackConfig.module.rule('ts').uses.delete('cache-loader')
     webpackConfig.module.rule('tsx').uses.delete('cache-loader')
-    /*
+
+    webpackConfig.module
+        .rule('vue')
+        .use('vue-loader')
+          .tap(options => {
+            // modify the options...
+            options.compilerOptions = {isCustomElement: (tag => tag.startsWith('amp-'))}
+            return options
+          })
+
     if (!process.env.SSR) {
       // Point entry to your app's client entry file
       webpackConfig
@@ -19,7 +29,7 @@ module.exports = {
         .add('./src/entry-client.js')
       return
     }
-*/
+
     // Point entry to your app's server entry file
     webpackConfig
       .entry('app')

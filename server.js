@@ -27,8 +27,8 @@ server.get('*', async (req, res) => {
     if (err) {
       throw err
     }
-    // console.log("Show me the HTML:", html.toString().replace(/<script type=\"text\/javascript\".+?\<\/script\>/,""));
-    const fhtml = html.toString().replace(/<script type=\"text\/javascript\".+?\<\/script\>/,"");
+    // console.log("Show me the HTML:", html.toString().replace(/<script type=\"text\/javascript\".+?\<\/script\>/g,""));
+    const fhtml = html.toString().replace(/<script type=\"text\/javascript\".+?\<\/script\>/g,"");
     html = fhtml
       .toString()
       .replace('<div id="app">', `<div id="app">${appContent}`)
@@ -37,6 +37,6 @@ server.get('*', async (req, res) => {
   })
 })
 
-console.log('You can navigate to http://localhost:8080')
+console.log('You can navigate to http://localhost:8085')
 
-server.listen(8080)
+server.listen(8085)

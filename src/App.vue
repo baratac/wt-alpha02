@@ -4,7 +4,11 @@
   <div v-html="getMyHtml()"> </div>
   <div v-html="getInter()"> </div>
   <hr>
+  <h2>Static Data</h2>
   <div v-html="getStaticList()"> </div>
+  <hr>
+  <h2>Remote Data provided by countries.trevorblades</h2>
+  <div v-html="getRemoteData()"> </div>
 </template>
 
 <script>
@@ -33,7 +37,7 @@ export default {
 
           // Not able to use this tags using v-pre or using vue-loader config option to ignore amp tags
           /* Version using state because couldn't find root path for local json file */
-          /*
+          
           const sStart = '<amp-state id="staticList"> <script type="application/json">'
           const sTable = '{ "items": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}' // '{ "items": [ { "id": 1, "title": "ONE"}, {"id": 2, "title": "Two"} ] }' //
           const sWord = 'script';
@@ -44,7 +48,10 @@ export default {
           const lTemplate =' <template type="amp-mustache"> <div>{{.}}</div> </template>'
           const lEnd = '</amp-list>'
           return   stateInfo + lStart + lTemplate + lEnd;
-          */
+          
+
+    },
+    getRemoteData() {
           const srcUrl = 'https://countries.trevorblades.com?query={ countries {name code capital}}'
           const lStart = '<amp-list binding="no" layout="fixed-height" height="126" items="data.countries" src="' + srcUrl + '">' // src="./assets/countries.json">' // src="amp-state:staticList">'
 

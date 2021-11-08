@@ -58,5 +58,5 @@ In this case the div inside is not correctly processed by vue that interferes wi
 
 So the only solution I could found in the time of the challenge was th build the string on a method and introduce using v-html directive.
 
-CAB21x65 Nov.2021
+CAB21x65*NOV21
 

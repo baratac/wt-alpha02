@@ -1,24 +1,35 @@
 # Vue.js SSR project
 
-1.[x] Create a AMP valid page (/amp-valid) - 10 points
-1.[x] Implement the amp component “amp-list” inside a vue component
-    1. [x] With Static data - 5 points
-    1. [x] With Remote data - Use GraphQL endpoint to retrieve data
 
+## Project setup
+```
+yarn install
+```
+
+### Run solution
+```
+yarn build
+```
+
+## Goals
+* Create a AMP valid page (/amp-valid)
+* Implement the amp component “amp-list” inside a vue component
+    * With Static data
+    * With Remote data - Use GraphQL endpoint to retrieve data
 
 ## Guide Lines
 ### Vue.js SSR
 Use the framework bellow
 * [SSR Vue](https://ssr.vuejs.org/)
-Advice: Find a boilerplate on github, as simples as better
-### AMP
-    [AMP project](https://amp.dev/)
 
-[Extension to check if a page is amp valid or not](https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbb mknc)
+### AMP
+* [AMP project](https://amp.dev/)
+
+* [Extension to check if a page is amp valid or not](https://chrome.google.com/webstore/detail/amp-validator/nmoffdblmcmgeicmolmhobpoocbbmknc)
 
 ### GraphQL demo API for listing
-*[Github project](https://github.com/trevorblades/countries)
-*[Online demo](https://countries.trevorblades.com/)
+* [Github project](https://github.com/trevorblades/countries)
+* [Online demo](https://countries.trevorblades.com/)
 
 
 ## Resolution
@@ -27,7 +38,7 @@ All challenges are solved in the code the only way I was able to achieve, using 
 
 Three techniques could be found to change the way HTML is manage by vue two are based on directives, v-pre and v-html, only the latter proved to be usefull as v-pre just blindly delivers the content of the tag without processing its contents and we need to use vue feature to update information, so the other option is to change compiler options to accept AMP tags (check vue.config.js) the problem with this last approach is it's usefulness in more complex tags such as AMP-LIST :
 
-````
+````html
 <amp-list
   width="auto"
   height="100"
